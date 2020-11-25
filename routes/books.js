@@ -21,8 +21,7 @@ booksRouter.route('/')
 
     .post((req, res, next) => {
         Books.create(req.body)
-            .then((book) => {
-                console.log('Book Created', book);
+            .then((book) => {                
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
                 res.json(book);

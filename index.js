@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
+var loansRouter = require('./routes/loanRegisters');
 
 morgan(function (tokens, req, res) {
     return [
@@ -30,6 +31,7 @@ app.use(express.json());
 
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
+app.use('/loans', loansRouter);
 
 
 const port = process.env.SERVER_PORT || 3000;
