@@ -1,17 +1,14 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 const Loans = require('../models/loanRegisters');
 
 const loansRouter = express.Router();
 
-loansRouter.use(bodyParser.json());
-
 loansRouter.route('/')
 
     .get((req, res, next) => {
-        Loans.find({})
+        Loans.find({}).populate('Users','Books')
             .then((registers) => {
                 if (registers) {
                     res.statusCode = 200;

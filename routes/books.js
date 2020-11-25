@@ -1,12 +1,9 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 const Books = require('../models/books');
 
 const booksRouter = express.Router();
-
-booksRouter.use(bodyParser.json());
 
 booksRouter.route('/')
     .get((req, res, next) => {

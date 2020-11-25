@@ -3,6 +3,12 @@ const { schema } = require('./users');
 const Schema = mongoose.Schema;
 
 const loanSchema = new Schema({
+    book: {
+        type: Schema.Types.ObjectId,
+        ref: 'Books',
+        required: true,
+        unique: true
+    },
     dateLoan: {
         type: Date,
         required: true,
@@ -12,6 +18,7 @@ const loanSchema = new Schema({
         ref: 'Users',
         required: true
     },
+    
     dateBack: {
         type: Date,
         default: null

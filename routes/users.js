@@ -1,12 +1,10 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var middleware = require('../middlewares/users');
 
 const Users = require('../models/users');
 
 const usersRouter = express.Router();
-
-usersRouter.use(bodyParser.json());
 
 usersRouter.route('/')
     .get((req, res, next) => {
@@ -19,12 +17,12 @@ usersRouter.route('/')
             .catch((error) => next(error));
     })
 
-    .post((req, res, next) => {        
+    .post(middleware.validateUser,(req, res, next) => {        
         Users.create(req.body)
             .then((user) => {                
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
-                res.json(user);
+                res.json(user);                
             }, (error) => next(error))
             .catch((error) => next(error))
     })

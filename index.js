@@ -4,10 +4,12 @@ var app = express();
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 
+//importing routes
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var loansRouter = require('./routes/loanRegisters');
 
+//setting logger
 morgan(function (tokens, req, res) {
     return [
         tokens.method(req, res),
@@ -32,7 +34,6 @@ app.use(express.json());
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/loans', loansRouter);
-
 
 const port = process.env.SERVER_PORT || 3000;
 
