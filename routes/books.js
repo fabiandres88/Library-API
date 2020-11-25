@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 
 const Books = require('../models/books');
+const middlewares = require('../middlewares/books');
 
 const booksRouter = express.Router();
 
@@ -36,7 +37,7 @@ booksRouter.route('/')
 
 booksRouter.route('/:bookId')
 
-    .get((req, res, next) => {
+    .get(middlewares.availability, (req, res, next) => {
         Books.findById(req.params.bookId)
             .then((book) => {
                 res.statusCode = 200;

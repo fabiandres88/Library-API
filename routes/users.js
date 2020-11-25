@@ -19,7 +19,7 @@ usersRouter.route('/')
 
     .post(middleware.validateUser,(req, res, next) => {        
         Users.create(req.body)
-            .then((user) => {                
+            .then((user) => {                          
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
                 res.json(user);                
@@ -40,7 +40,7 @@ usersRouter.route('/:userId')
     .get((req, res, next) => {
         
         Users.findById(req.params.userId)
-            .then((user) => {
+            .then((user) => {                
                 if(!user) {
                     res.statusCode = 404;
                     res.end("User not found");

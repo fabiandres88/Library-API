@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 //importing routes
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
-var loansRouter = require('./routes/loanRegisters');
+var loansRouter = require('./routes/loans');
 
 //setting logger
 morgan(function (tokens, req, res) {

@@ -1,14 +1,15 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var middlewares = require('../middlewares/loans')
 
-const Loans = require('../models/loanRegisters');
+const Loans = require('../models/loans');
 
 const loansRouter = express.Router();
 
 loansRouter.route('/')
 
     .get((req, res, next) => {
-        Loans.find({}).populate('Users','Books')
+        Loans.find({}).populate('book').populate('user')
             .then((registers) => {
                 if (registers) {
                     res.statusCode = 200;
@@ -20,7 +21,7 @@ loansRouter.route('/')
             }, (error) => next(error))
             .catch((error) => next(error));
     })
-    .post((req, res, next) => {
+    .post(middlewares.validateBookId,middlewares.validateUserId,(req, res, next) => {        
         Loans.create(req.body)
             .then((loan) => {
                 res.statusCode = 200;
@@ -33,8 +34,9 @@ loansRouter.route('/')
 loansRouter.route('/:loanId')
 
     .put((req, res, next) => {
-        Loans.findByIdAndUpdate(req.params.loanId, {
-            $set: req.body
+        var { dateBack } =req.body;
+        Loans.findByIdAndUpdate(req.params.loanId, {            
+            $set: dateBack
         }, { new: true })
             .then((loan) => {
                 res.statusCode = 200;
