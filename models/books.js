@@ -10,17 +10,11 @@ const booksSchema = new Schema ({
     author: {
         type: String,
         required: true,
-        unique: true
+        uunique: true
     },
     genre: {
         type: String,
-        required: true,
-        unique: true
-    },
-    available: {
-        type: Boolean,
-        required: true,
-        unique: true
+        required: true        
     }
 })
 

@@ -1,7 +1,11 @@
 require('dotenv').config();
 var express = require('express');
+var app = express();
 var morgan = require('morgan');
 var mongoose = require('mongoose');
+
+var usersRouter = require('./routes/users');
+var booksRouter = require('./routes/books');
 
 morgan(function (tokens, req, res) {
     return [
@@ -21,7 +25,13 @@ connect.then((db) => {
     console.error(error);
 });
 
-var app = express();
+app.use(morgan('dev'));
+app.use(express.json());
+
+app.use('/users', usersRouter);
+app.use('/books', booksRouter);
+
+
 const port = process.env.SERVER_PORT || 3000;
 
 app.listen(port, () => {
