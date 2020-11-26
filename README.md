@@ -576,4 +576,4 @@ Resultado esperado:
 
 ### Por implementar
 
-Se implementaron algunos middlewares para cada una de las rutas tres modelos, pero de igul manera quedan pendientes implementar muchos mas. De igual forma queda pendiente implemnetar la autenticación con **jwt** y la encriptacion de la contraseña con **bcrypt**, y la posibilidad de agrgra mas funcionalidades. 
+Se implementaron algunos middlewares para cada una de las rutas tres modelos, pero de igul manera quedan pendientes implementar muchos mas. De igual forma queda pendiente implemnetar la autenticación con **jwt** y la encriptacion de la contraseña con **bcrypt**, y la posibilidad de agregar mas funcionalidades. 
