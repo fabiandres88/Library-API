@@ -247,140 +247,285 @@ Requerimientos:
 
 Resultado esperado:
 
+>
+
 * HTTP response 204.
 * Mensaje No content.
 
+
 ### CRUD LIBROS
 
-Este es el modelo de documento a manejar para este CRUD.
+Este es el modelo de documento a manejar para este CRUD:
 
+```
 {
-"_id": "6g007im032123"
-"name" : "Libro 1",
-"author" : "Ivan Gomez",
-"genre": "Novela"
+    "_id": "5fbf3072220d5a30d87540c0",
+    "name": "Biblia",
+    "author": "Various",
+    "genre": "Advices",
+    "__v": 0
 }
+```
 
-GET Request
-1. Listar todos los libros( https://localhost/3000/books ).
+### GET Request
+
+Listar todos los libros( https://localhost/3000/books ).
 
 Resultado esperado:
+
+```
+[
+    {
+        "_id": "5fbf3072220d5a30d87540c0",
+        "name": "La Odisea",
+        "author": "Homero",
+        "genre": "Epica",
+        "__v": 0
+    },
+    {
+        "_id": "30d87540c05fbf3072220d5a",
+        "name": "La Iliada",
+        "author": "Homero",
+        "genre": "Epica",
+    "__v": 0
+    }   
+]
+```
 
 * HTTP response 200.
 * Array con todos objetos de libro disponibles.
 
-POST Request
-2. Crear libro( https://localhost/3000/books ).
+### POST Request
+
+Crear libro( https://localhost/3000/books ).
 
 Requerimientos:
+
 * Dentro del body request se envia un objeto JSON como se muestra a continuacion, con todas sus propiedades asignadas.
 
 {
-"name" : "string",
-"author" : "string",
-"genre": "string"
+    "name" : "string",
+    "author" : "string",
+    "genre": "string"
 }
 
 * Las propiedad name es unica(indice), no puede haber mas de un libro con un mismo nombre.
 * Todas las propiedades del modelo son requeridas.
 
 Resultado esperado:
+
+```
+{
+    "_id": "0722205fbf3d87540c05a30d",
+    "name": "Harry Potter",
+    "author": "J. K. Rowling",
+    "genre": "Fiction",
+    "__v": 0
+}
+```
 
 * HTTP response 200.
 * Objeto con libro creado.
 
-GET Request
-3. Listar un libro por id( https://localhost/3000/users/:idBook ).
+### GET Request por id
+
+Listar un libro por id( https://localhost/3000/users/:idBook ).
 
 Requerimientos:
+
+> https://localhost/3000/users/0722540c05a30d205fbf3d87
+
 * Id del documento del libro solicitado es enviado como parametro requerido en la url del endpoint.
 
 Resultado esperado:
+
+```
+{
+    "_id": "0722540c05a30d205fbf3d87",
+    "name": "La Maria",
+    "author": "Jorse Isaac",
+    "genre": "Novel",
+    "__v": 0
+}
+```
 
 * HTTP response 200.
 * Objeto con el libro solicitado.
 
-* HTTP response 400.
+```
+"Book not found"
+```
+
+* HTTP response 404.
 * Respuesta JSON con el mensaje libro no encontrado.
 
-PUT Request
-4. Modificar un libro por id( https://localhost/3000/users/:idBook ).
+### PUT Request por id
+
+Modificar un libro por id( https://localhost/3000/users/:idBook )
+
+Documento libro antes del PUT:
+
+```
+{
+    "_id": "205fb0722540cf05a30d3d87",
+    "name": "El Alquimista",
+    "author": "Paulo Cohelo",
+    "genre": "",
+    "__v": 0
+}
+```
 
 Requerimientos:
-* Id del documento del libro solicitado es enviado como parametro requerido en la url del endpoint.
+
+> https://localhost/3000/users/205fb0722540cf05a30d3d87 
+
+* Id del documento del libro a modificar es enviado como parametro requerido en la url del endpoint.
+
+```
+{
+    genre": "Novel",
+}
+```
 
 Resultado esperado:
+
+```
+{
+    "_id": "205fb0722540cf05a30d3d87",
+    "name": "El Alquimista",
+    "author": "Paulo Cohelo",
+    "genre": "Novel",
+    "__v": 0
+}
+```
 
 * HTTP response 200.
 * Objecto con el libro modificado.
 
+```
+"Book not found"
+```
+
 * HTTP response 400.
 * Respuesta JSON con el mensaje libro no encontrado.
 
-DELETE Request
-5. Remover un libro por id( https://localhost/3000/users/:idBook ).
+### DELETE Request por id
+
+Remover un libro por id( https://localhost/3000/users/:idBook ).
 
 Requerimientos:
-* Id del documento del libro solicitado es enviado como parametro requerido en la url del endpoint.
+
+> https://localhost/3000/users/205fb005a30d3d87722540cf
+
+* Id del documento del libro a remover es enviado como parametro requerido en la url del endpoint.
 
 Resultado esperado:
+
+>
 
 * Request con status 204.
 * Mensaje No content..
 
-* Request con status 400.
-* Respuesta JSON con el mensaje libro no encontrado.
-
-CRUD PRESTAMOS
+### CRUD PRESTAMOS
 
 Este es el modelo de documento a manejar para este CRUD.
 
+```
 {
-"_id": "7h118jn143234"
+"_id": "2220d55fbf307a30d87540c0"
 "book" : "Libro 1",
-"dateLoan" : "Dec 23 2012 19:13:19",
+"dateLoan" : "2012-12-19T06:03:25.000Z",
 "user": "Roberto Velez",
 "dateBack": null
 }
+```
 
-GET Request
-1. Listar todos los registros( https://localhost/3000/loans ).
+### GET Request
+
+Listar todos los registros( https://localhost/3000/loans ).
 
 Resultado esperado:
+
+```
+[
+    {
+        "book": [
+            {
+                "_id": "5fbf3072220d5a30d87540c0",
+                "name": "Biblia",
+                "author": "Thomas",
+                "genre": "Romance",
+                "__v": 0
+            }
+        ],
+        "user": [
+            {
+                "_id": "5fbf2fc2220d5a30d87540bd",
+                "firstName": "Fabiancho",
+                "lastName": "Ruiz",
+                "dni": "55610s96d578978",
+                "email": "ffaf@gmail.com",
+                "phone": "45678",
+                "password": "working",
+                "__v": 0
+            }
+        ],
+        "dateBack": null,
+        "_id": "5fbf3087220d5a30d87540c1",
+        "dateLoan": "2012-12-19T06:03:25.000Z",
+        "__v": 0
+    }
+]
+``
 
 * Request con status 200.
 * Array con todos objetos de prestamos disponibles.
 
-POST Request
-2. Crear registro( https://localhost/3000/loans ).
+### POST Request
+
+Crear registro( https://localhost/3000/loans )
 
 Requerimientos:
 
-* Dentro del body request se envia un objeto JSON como se muestra a continuacion, con todas sus propiedades asignadas.
-
+```
 {
-"book" : "IdObject",
-"dateLoan" : "Date",
-"user": "IdObject",
-"dateBack": "Date" 
+    "book" : "Schema.Types.ObjectId",
+    "dateLoan" : "Date",
+    "user": "Schema.Types.ObjectId",
+    "dateBack": "Date" 
 }
+```
 
-Nota: El campo "_id": "Es auto generado por la base de datos" por esta razon no se incluye al momento de crear un nuevo documento.(ponerlo a nivel global en casa)
-
+* Dentro del body request se envia un objeto JSON como se muestra a continuacion, con todas sus propiedades asignadas.
 * Todas las propiedades del modelo son requeridas.
 * Las propiedad name es unica(indice), no puede haber mas de un libro con un mismo nombre.
 * El campo "dateBack": "Tiene un valor por defecto de null".
-* Las propiedades "book" y "user" son de tipo id object y hacen referencia a los modelos books y users respectivamente.
+* Las propiedades "book" y "user" son de tipo ObjectId y hacen referencia a los modelos books y users respectivamente.
 
 Resultado esperado:
+
+```
+{
+    "_id": "20d5a5fbf3087230540c1d87",
+    "book" : "0c1d875fbf30872305420d5a",
+    "dateLoan" : "2013-10-19T06:04:21.000Z",
+    "user": "bf308720d5a5f2c1d8730540",
+    "dateBack": null,
+    "__v": 0 
+}
+```
 
 * HTTP response status 200.
 * Objeto con registro creado.
 
-PUT Request
-4. Modificar un registro por id( https://localhost/3000/users/:idBook ).
+### PUT Request por id
+
+Modificar un registro por id( https://localhost/3000/users/:idBook )
 
 Requerimientos:
+
+> https://localhost/3000/users/:idBook
+
 * Id del documento del libro solicitado es enviado como parametro requerido en la url del endpoint.
 *Dentro del body request se envia un objeto JSON como se muestra a continuacion, con la fecha de entrega del libro.
 
@@ -413,3 +558,6 @@ Resultado esperado:
 
 * HTTP response status 400.
 * Respuesta JSON con el mensaje libro no encontrado.
+
+
+Nota: El campo "_id": "Es auto generado por la base de datos" por esta razon no se incluye al momento de crear un nuevo documento.(ponerlo a nivel global en casa)
