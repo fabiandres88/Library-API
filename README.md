@@ -41,32 +41,34 @@ Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 > library@1.0.0 start
 > nodemon index.js
 
-[nodemon] 2.0.6
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching path(s): *.*
-[nodemon] watching extensions: js,mjs,json
-[nodemon] starting `node index.js`
-server ready at port: 3000
-Connection successful to database
+> [nodemon] 2.0.6
+> [nodemon] to restart at any time, enter `rs`
+> [nodemon] watching path(s): *.*
+> [nodemon] watching extensions: js,mjs,json
+> [nodemon] starting `node index.js`
+> server ready at port: 3000
+> Connection successful to database
 
 
 ## Endpoints a manejar:
 
 ### CRUD Uusarios
 
-Este es el modelo de documento a manejar para este CRUD.
+Este es el modelo de documento a manejar para este CRUD:
 
+```
 {
-"_id": "5f996hl921012"
-"firstName" : "Juan",
-"lastName" : "Gomez",
-"dni": "1056986236",
-"phone": "4000102",
-"email": "example@domain.co", 
-"password": "xwr45hy862b"
+    "_id": "5fbf2fb3220d5a30d87540bd"
+    "firstName" : "Juan",
+    "lastName" : "Gomez",
+    "dni": "1056986236",
+    "phone": "4000102",
+    "email": "example@domain.co", 
+    "password": "xwr45hy862b"
 }
+```
 
-GET Request
+### GET Request
 1. Listar todos los usuarios( https://localhost/3000/users ).
 
 Resultado esperado:
