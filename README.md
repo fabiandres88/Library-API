@@ -42,11 +42,13 @@ Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 ```
  library@1.0.0 start
  nodemon index.js
+
  [nodemon] 2.0.6
  [nodemon] to restart at any time, enter `rs`
  [nodemon] watching path(s): *.*
  [nodemon] watching extensions: js,mjs,json
  [nodemon] starting `node index.js`
+
  server ready at port: 3000
  Connection successful to database
 ```
@@ -103,7 +105,7 @@ Resultado esperado:
 * HTTP response 200.
 * Array con todos objetos de usuario disponibles.
 
-## POST Request
+### POST Request
 
 Crear usuario( https://localhost/3000/users ).
 
@@ -142,22 +144,42 @@ Resultado esperado:
 * HTTP response 200.
 * Objeto con usuario creado.
 
-## GET Request por id
+### GET Request por id
 
 Listar un usuario por id( https://localhost/3000/users/:idUser ).
 
 Requerimientos:
+
+> https://localhost/3000/users/8gbf4fb3220d5a30d87540bd
+
 * Id del documento de usuario solicitado es enviado como parametro requerido en la url del endpoint.
 
 Resultado esperado:
 
+```
+{
+        "_id": "8gbf4fb3220d5a30d87540bd",
+        "firstName": "Fabio",
+        "lastName": "Ramirez",
+        "dni": "94567843",
+        "email": "fab@example.com",
+        "phone": "3456782",
+        "password": "gt56re43sd",
+        "__v": 0
+    }
+```
+
 * HTTP response 200.
 * Objeto con usuario solicitado.
+
+```
+"User not found"
+```
 
 * HTTP response 400.
 * Respuesta JSON con mensaje usuario no encontrado.
 
-PUT Request
+### PUT Request
 4. Modificar un usuario por id( https://localhost/3000/users/:idUser ).
 
 Requerimientos:
