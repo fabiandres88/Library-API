@@ -17,12 +17,12 @@ usersRouter.route('/')
             .catch((error) => next(error));
     })
 
-    .post(middleware.validateUser,(req, res, next) => {        
+    .post(middleware.validateUser, (req, res, next) => {
         Users.create(req.body)
-            .then((user) => {                          
+            .then((user) => {
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
-                res.json(user);                
+                res.json(user);
             }, (error) => next(error))
             .catch((error) => next(error))
     })
@@ -38,10 +38,10 @@ usersRouter.route('/')
 usersRouter.route('/:userId')
 
     .get((req, res, next) => {
-        
+
         Users.findById(req.params.userId)
-            .then((user) => {                
-                if(!user) {
+            .then((user) => {
+                if (!user) {
                     res.statusCode = 404;
                     res.end("User not found");
                     return;
@@ -80,7 +80,5 @@ usersRouter.route('/:userId')
             }, (error) => next(error))
             .catch((error) => next(error));
     });
-
-    
 
 module.exports = usersRouter;

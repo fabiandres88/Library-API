@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const usersSchema = new Schema ({
+const usersSchema = new Schema({
     firstName: {
         type: String,
-        required: true        
+        required: true
     },
     lastName: {
         type: String,
-        required: true        
+        required: true
     },
     dni: {
         type: String,
@@ -22,11 +22,11 @@ const usersSchema = new Schema ({
     },
     phone: {
         type: String,
-        required: true        
+        required: true
     },
     password: {
         type: String,
-        required: true        
+        required: true
     }
 })
 

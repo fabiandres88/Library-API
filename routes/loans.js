@@ -16,27 +16,26 @@ loansRouter.route('/')
                     res.setHeader('Content-Type', 'application/json');
                     res.json(registers);
                 } else {
-                    res.end('There are not any register');
+                    res.end('There are not any registers');
                 };
             }, (error) => next(error))
             .catch((error) => next(error));
     })
-    .post(middlewares.validateBookId,middlewares.validateUserId,(req, res, next) => {        
-        Loans.create(req.body)
-            .then((loan) => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.json(loan);
-            }, (error) => next(error))
-            .catch((error) => next(error));
-    });
+    .post(middlewares.validateBookId, middlewares.validateUserId,middlewares.validateDateLoan, middlewares.availability, (req, res, next) => {
+            Loans.create(req.body)
+                .then((loan) => {
+                    res.statusCode = 200;
+                    res.setHeader('Content-Type', 'application/json');
+                    res.json(loan);
+                }, (error) => next(error))
+                .catch((error) => next(error));
+        });
 
 loansRouter.route('/:loanId')
 
-    .put((req, res, next) => {
-        var { dateBack } =req.body;
-        Loans.findByIdAndUpdate(req.params.loanId, {            
-            $set: dateBack
+    .put(middlewares.validateLoan, (req, res, next) => {
+        Loans.findByIdAndUpdate(req.params.loanId, {
+            $set: req.body
         }, { new: true })
             .then((loan) => {
                 res.statusCode = 200;

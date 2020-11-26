@@ -20,6 +20,7 @@ morgan(function (tokens, req, res) {
     ].join(' ')
 })
 
+//setting database connection
 const connect = mongoose.connect(process.env.DB_HOST);
 
 connect.then((db) => {
@@ -35,6 +36,7 @@ app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/loans', loansRouter);
 
+//setting server connection
 const port = process.env.SERVER_PORT || 3000;
 
 app.listen(port, () => {

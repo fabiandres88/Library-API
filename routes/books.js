@@ -19,7 +19,7 @@ booksRouter.route('/')
 
     .post((req, res, next) => {
         Books.create(req.body)
-            .then((book) => {                
+            .then((book) => {
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
                 res.json(book);
@@ -74,6 +74,5 @@ booksRouter.route('/:bookId')
             }, (error) => next(error))
             .catch((error) => next(error));
     });
-
 
 module.exports = booksRouter;

@@ -1,14 +1,12 @@
 var mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const loanSchema = new Schema({
     book: [{
         type: Schema.Types.ObjectId,
         ref: 'Book',
-        required: true,
-        unique: true
-    }] ,
+        required: true
+    }],
     dateLoan: {
         type: Date,
         required: true,
@@ -17,7 +15,7 @@ const loanSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    }],    
+    }],
     dateBack: {
         type: Date,
         default: null
