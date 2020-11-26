@@ -33,7 +33,7 @@ Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 * Abrir carpeta proyecto con editor de texto deseado.
 * Abrir la terminal y asegurarse de estar el la ruta del proyecto.
 * Ejecutar el siguiente comando en la consola.
-> $ npm instal
+> $ npm install
 * Asi se instalaran los paquetes necesarios para el proyecto.
 * Ejecutar el siguiente comando en la consola.
 > $ npm start
@@ -573,3 +573,7 @@ Resultado esperado:
 * Respuesta JSON con el mensaje libro no encontrado.
 
 **Nota:** El campo "_id": "Es auto generado por la base de datos" por esta razon no se incluye al momento de crear un nuevo documento.
+
+### Por implementar
+
+Se implementaron algunos middlewares para cada una de las rutas tres modelos, pero de igul manera quedan pendientes implementar muchos mas. De igual forma queda pendiente implemnetar la autenticación con **jwt** y la encriptacion de la contraseña con **bcrypt**, y la posibilidad de agrgra mas funcionalidades. 
