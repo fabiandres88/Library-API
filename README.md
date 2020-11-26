@@ -476,7 +476,7 @@ Resultado esperado:
         "__v": 0
     }
 ]
-``
+```
 
 * Request con status 200.
 * Array con todos objetos de prestamos disponibles.
@@ -524,40 +524,52 @@ Modificar un registro por id( https://localhost/3000/users/:idBook )
 
 Requerimientos:
 
-> https://localhost/3000/users/:idBook
+> https://localhost/3000/users/bf3087230540c1d8720d5a5f
 
 * Id del documento del libro solicitado es enviado como parametro requerido en la url del endpoint.
-*Dentro del body request se envia un objeto JSON como se muestra a continuacion, con la fecha de entrega del libro.
 
+```
 {
-"dateBack": "Nov 25 2018 07:18:25" 
+    "dateBack": "2018-09-29T06:01:26.000Z" 
 }
+```
+
+*Dentro del body request se envia un objeto JSON como se muestra a continuacion, con la fecha de entrega del libro.
 
 * Objeto pre modificacion.
 
+```
 {
-"_id": "7h118jn143234"
-"book" : "Libro 2",
-"dateLoan" : "Nov 23 2018 19:13:19",
-"user": "Roberto Velez",
-"dateBack": null
+    "_id": "d8720d5a5bf3087230540c1f"
+    "book" : "Libro 2",
+    "dateLoan" : "2018-09-19T06:01:26.000Z",
+    "user": "Roberto Velez",
+    "dateBack": null,
+    "__v": 0     
 }
+```
 
 Resultado esperado:
+
+```
+{
+    "_id": "d8720d5a5bf3087230540c1f"
+    "book" : "Libro 2",
+    "dateLoan" : "2018-09-19T06:01:26.000Z",
+    "user": "Roberto Velez",
+    "dateBack": 2018-09-29T06:01:26.000Z,
+    "__v": 0     
+}
+```
 
 * HTTP response status 200.
 * Objecto con el registro modificado.
 
-{
-"_id": "7h118jn143234"
-"book" : "Libro 2",
-"dateLoan" : "Nov 23 2018 19:13:19",
-"user": "Roberto Velez",
-"dateBack": "Nov 25 2018 07:18:25" 
-}
+```
+"Book not found"
+```
 
-* HTTP response status 400.
+* HTTP response status 404.
 * Respuesta JSON con el mensaje libro no encontrado.
 
-
-Nota: El campo "_id": "Es auto generado por la base de datos" por esta razon no se incluye al momento de crear un nuevo documento.(ponerlo a nivel global en casa)
+**Nota:** El campo "_id": "Es auto generado por la base de datos" por esta razon no se incluye al momento de crear un nuevo documento.
