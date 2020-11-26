@@ -14,18 +14,26 @@
 
 **6.** Base de datos manejada con MongoDB.
 
-Aplicaciones a utilizar:
+## Aplicaciones a utilizar:
 
--Postman (https://www.postman.com/)
+Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 
--MongoDB Compass Community (https://www.mongodb.com/try/download/compass)
+- Postman (https://www.postman.com/downloads/)
 
-Postman para testear los endpoints y MongoDB para manejar la base de datos localmente.
+- MongoDB Compass Community (https://www.mongodb.com/try/download/compass)
 
-##Instalacion
+- Visual Studio code o editro de codigo deseado. (https://code.visualstudio.com/downloa)
+
+- NodeJS. (https://nodejs.org/en/download/)
+
+## Instalacion
 
 * Se debe clonar el repositorio para tener el codigo de manera local.
-* API para una biblioteca.
+* Descomprimir la carpeta del proyecto.
+* Abrir carpeta proyecto con editor de texto deseado.
+* Abrir la terminal y asegurarse de estar el la ruta del proyecto.
+* Ejecutar el siguiente comando en la consola.
+> $ npm instal
 
 
 
