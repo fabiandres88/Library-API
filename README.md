@@ -34,13 +34,25 @@ Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 * Abrir la terminal y asegurarse de estar el la ruta del proyecto.
 * Ejecutar el siguiente comando en la consola.
 > $ npm instal
+* Asi se instalaran los paquetes necesarios para el proyecto.
+* Ejecutar el siguiente comando en la consola.
+> $ npm start
+* En la terminal se visualizara asi:
+> library@1.0.0 start
+> nodemon index.js
+
+[nodemon] 2.0.6
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node index.js`
+server ready at port: 3000
+Connection successful to database
 
 
+## Endpoints a manejar:
 
-
-ENDPOINTS A MANEJAR:
-
-CRUD USUARIOS
+### CRUD Uusarios
 
 Este es el modelo de documento a manejar para este CRUD.
 
