@@ -176,38 +176,81 @@ Resultado esperado:
 "User not found"
 ```
 
-* HTTP response 400.
+* HTTP response 404.
 * Respuesta JSON con mensaje usuario no encontrado.
 
-### PUT Request
-4. Modificar un usuario por id( https://localhost/3000/users/:idUser ).
+### PUT Request por id
+
+Modificar un usuario por id( https://localhost/3000/users/:idUser ).
+
+Usuario antes del PUT:
+```
+{
+    "_id": "8gbf4fb3280d5a37d87540bd",
+    "firstName": "Zaray",
+    "lastName": "Jaimes",
+    "dni": "1090787654",
+    "email": "zar@example.com",
+    "phone": "123456",
+    "password": "currentpassword",
+    "__v": 0
+`}
+```
 
 Requerimientos:
-* Id del documento del usuario solicitado es enviado como parametro requerido en la url del endpoint.
+
+```
+{
+    "password": "newpassword"
+}
+```
+* El body request con la propiedad o las propiedades a modificar.
+
+> https://localhost/3000/users/8gbf4fb3280d5a37d87540bd
+
+* Id del documento del usuario a modificar es enviado como parametro requerido en la url del endpoint.
 
 Resultado esperado:
+
+```
+{
+        "_id": "8gbf4fb3280d5a37d87540bd",
+        "firstName": "Zaray",
+        "lastName": "Jaimes",
+        "dni": "1090787654",
+        "email": "zar@example.com",
+        "phone": "123456",
+        "password": "newpassword",
+        "__v": 0
+    }
+```
 
 * HTTP response 200.
 * Objecto con usuario modificado.
 
-* HTTP response 400.
+```
+"User not found"
+```
+
+* HTTP response 404.
 * Respuesta JSON con mensaje usuario no encontrado.
 
-DELETE Request
-5. Remover un usuario por id( https://localhost/3000/users/:idUser ).
+### DELETE Request por id
+
+Remover un usuario por id( https://localhost/3000/users/:idUser ).
 
 Requerimientos:
+
+> https://localhost/3000/users/8gbf4fb3280d5a37d87540bd
+
 * Id del documento del usuario solicitado es enviado como parametro requerido en la url del endpoint.
 
 Resultado esperado:
 
 * HTTP response 204.
-* Mensaje No content..
+* Mensaje No content.
 
-* HTTP response 400.
-* Respuesta JSON con mensaje usuario no encontrado.
-
-CRUD LIBROS
+### CRUD LIBROS
 
 Este es el modelo de documento a manejar para este CRUD.
 
