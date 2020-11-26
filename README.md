@@ -38,17 +38,18 @@ Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 * Ejecutar el siguiente comando en la consola.
 > $ npm start
 * En la terminal se visualizara asi:
-> library@1.0.0 start
-> nodemon index.js
 
-> [nodemon] 2.0.6
-> [nodemon] to restart at any time, enter `rs`
-> [nodemon] watching path(s): *.*
-> [nodemon] watching extensions: js,mjs,json
-> [nodemon] starting `node index.js`
-> server ready at port: 3000
-> Connection successful to database
-
+```
+ library@1.0.0 start
+ nodemon index.js
+ [nodemon] 2.0.6
+ [nodemon] to restart at any time, enter `rs`
+ [nodemon] watching path(s): *.*
+ [nodemon] watching extensions: js,mjs,json
+ [nodemon] starting `node index.js`
+ server ready at port: 3000
+ Connection successful to database
+```
 
 ## Endpoints a manejar:
 
@@ -69,28 +70,81 @@ Este es el modelo de documento a manejar para este CRUD:
 ```
 
 ### GET Request
-1. Listar todos los usuarios( https://localhost/3000/users ).
+
+Listar todos los usuarios( https://localhost/3000/users ).
 
 Resultado esperado:
+
+```
+[
+    {
+        "_id": "5fbf2fb3220d5a30d87540bc",
+        "firstName": "Javier",
+        "lastName": "Santos",
+        "dni": "10002223456",
+        "email": "javi@example.com",
+        "phone": "4563738",
+        "password": "xdbghj65ug",
+        "__v": 0
+    },
+    {
+        "_id": "5fbf2fc2220d5a30d87540bd",
+        "firstName": "Roberto",
+        "lastName": "Ruiz",
+        "dni": "1000789765",
+        "email": "rob@example.com",
+        "phone": "4251678",
+        "password": "m7jh9d5r",
+        "__v": 0
+    }
+]
+```
 
 * HTTP response 200.
 * Array con todos objetos de usuario disponibles.
 
-POST Request
-2. Crear usuario( https://localhost/3000/users ).
+## POST Request
+
+Crear usuario( https://localhost/3000/users ).
 
 Requerimientos:
-* Dentro del body request se envia un objeto JSON como el expuesto en el modelo, con todas sus propiedades asignadas a un valor string.
+
+```
+{
+        "firstName": "string",
+        "lastName": "string",
+        "dni": "string",
+        "email": "string",
+        "phone": "string",
+        "password": "string"        
+    }
+```
+
+* Dentro del body request se envia un objeto JSON como el expuesto arriba, con todas sus propiedades asignadas.
 * Las propiedades dni y email son unicas(indices), no puede haber mas de un usuario con un mismo valor en cualquiera de estos dos campos.
 * Todas las propiedades del modelo son requeridas.
 
 Resultado esperado:
 
+```
+{
+        "_id": "5fbf4fb3220d5a30d87540bd",
+        "firstName": "Carolina",
+        "lastName": "Jaimes",
+        "dni": "10002223456",
+        "email": "car@example.com",
+        "phone": "4356789",
+        "password": "pijk86f5sre",
+        "__v": 0
+    }
+```
+
 * HTTP response 200.
 * Objeto con usuario creado.
 
-GET Request
-3. Listar un usuario por id( https://localhost/3000/users/:idUser ).
+## GET Request por id
+
+Listar un usuario por id( https://localhost/3000/users/:idUser ).
 
 Requerimientos:
 * Id del documento de usuario solicitado es enviado como parametro requerido en la url del endpoint.
