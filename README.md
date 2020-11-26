@@ -1,8 +1,28 @@
 # Library API
-APLICACIONES A UTILIZAR:
 
--POSTMAN (https://www.postman.com/)
--MONGODB COMPASS (https://www.mongodb.com/try/download/compass)
+##Caracteristicas
+
+**1.** API para una biblioteca.
+**2.** La biblioteca tiene libros un ejemplar de cada libro.
+**3.** Usuarios prestan libros.
+**4.** Se lleva el registro de esos prestamos.
+**5.** CRUD de usuarios y de libros.
+**6.** Base de datos manejada con MongoDB.
+
+Aplicaciones a utilizar:
+
+-Postman (https://www.postman.com/)
+-MongoDB Compass Community (https://www.mongodb.com/try/download/compass)
+
+Postman para testear los endpoints y MongoDB para manejar la base de datos localmente.
+
+##Instalacion
+
+**-** Se debe clonar el repositorio para tener el codigo de manera local.
+**-** API para una biblioteca.
+
+
+
 
 ENDPOINTS A MANEJAR:
 
