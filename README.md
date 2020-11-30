@@ -574,6 +574,30 @@ Resultado esperado:
 
 **Nota:** El campo "_id": "Es auto generado por la base de datos" por esta razon no se incluye al momento de crear un nuevo documento.
 
+### Authentication
+
+### POST request
+
+Requerimientos:
+
+- Body request con JSON que contenga el email y el password del usuario a loguear.
+
+```
+
+{
+    "email": "fff@gmail.com",
+    "password": "working"
+}
+```
+
+Resultado esperado:
+
+- JSON con token generado para el usuario logueado.
+
+```
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZmZkBnbWFpbC5jb20iLCJpYXQiOjE2MDY3MDEzNzcsImV4cCI6MTYwNjcwNDk3N30.Ldn54AC21LsmKlMQeDmdQ-0dQCgVbCqS3sVE-1f-i5s"
+```
+
 ### Por implementar
 
 Se implementaron algunos middlewares para cada una de las rutas tres modelos, pero de igul manera quedan pendientes implementar muchos mas. De igual forma queda pendiente implemnetar la autenticación con **jwt** y la encriptacion de la contraseña con **bcrypt**, y la posibilidad de agregar mas funcionalidades. 
