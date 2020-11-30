@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var loansRouter = require('./routes/loans');
+var loginRouter = require('./routes/login');
 
 //setting logger
 morgan(function (tokens, req, res) {
@@ -35,6 +36,7 @@ app.use(express.json());
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/loans', loansRouter);
+app.use('/login', loginRouter);
 
 //setting server connection
 const port = process.env.SERVER_PORT || 3000;
