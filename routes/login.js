@@ -12,7 +12,7 @@ loginRouter.route('/')
 
     .post((req, res, next) => {
         var { email } = req.body;                
-        var token = jwt.sign({ email: email }, process.env.JWT_KEY)            
+        var token = jwt.sign({ email: email }, process.env.JWT_KEY,{ expiresIn: 60 * 60 })            
             res.statusCode = 200;
             res.json(token);        
     });
