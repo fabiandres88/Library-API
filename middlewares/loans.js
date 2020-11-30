@@ -1,5 +1,3 @@
-// var express = require('express');
-// var mongoose = require('mongoose');
 const Books = require('../models/books');
 const Users = require('../models/users');
 const Loans = require('../models/loans');

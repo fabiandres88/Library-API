@@ -1,5 +1,4 @@
-// var express = require('express');
-// var mongoose = require('mongoose');
+
 
 const validateUser = ((req, res, next) => {
     var { firstName, lastName, dni, email, phone, password } = req.body;

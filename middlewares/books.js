@@ -1,5 +1,3 @@
-// var express = require('express');
-// var mongoose = require('mongoose');
 const Loans = require('../models/loans');
 
 var availability = ((req, res, next) => {
