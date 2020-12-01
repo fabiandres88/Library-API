@@ -580,6 +580,8 @@ Resultado esperado:
 
 Requerimientos:
 
+> https://localhost/3000/login
+
 - Body request con JSON que contenga el email y el password del usuario a loguear.
 
 ```
