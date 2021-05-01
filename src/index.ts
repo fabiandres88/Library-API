@@ -1,7 +1,8 @@
+import "reflect-metadata";
 import * as dotenv from "dotenv";
 dotenv.config();
 import express from 'express';
-var app = express();
+import app from "./app"
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 
