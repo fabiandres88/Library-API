@@ -1,7 +1,7 @@
 import { Controller } from "routing-controllers";
 
 
-@Controller("/nooks")
+@Controller("/books")
 export default class BooksController {
     constructor() {}
 }

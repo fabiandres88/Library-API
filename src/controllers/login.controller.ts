@@ -1,6 +1,6 @@
 import { Controller } from "routing-controllers";
 
-@Controller("/Login")
+@Controller("/login")
 export default class LoginController {
     constructor() {}
 }

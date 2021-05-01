@@ -1,7 +1,7 @@
 import { Controller } from "routing-controllers";
 
 
-@Controller("/Users")
+@Controller("/users")
 export default class UsersController {
 constructor() {}
 }

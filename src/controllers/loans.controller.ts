@@ -1,7 +1,7 @@
 import { Controller } from "routing-controllers";
 
 
-@Controller("/Loans")
+@Controller("/loans")
 export default class LoansController {
     constructor() {}
 }
