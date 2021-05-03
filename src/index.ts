@@ -1,7 +1,6 @@
 import "reflect-metadata";
 import * as dotenv from "dotenv";
 dotenv.config();
-import express from 'express';
 import app from "./app"
 import morgan from 'morgan';
 import mongoose from 'mongoose';
@@ -18,16 +17,19 @@ morgan(function (tokens: any, req: any, res: any) {
 })
 
 //setting database connection
-const connect = mongoose.connect(`${process.env.DB_HOST}`);
+const connect = mongoose.connect(`${process.env.DB_HOST}`, {
+    "useNewUrlParser":true,
+    "useUnifiedTopology": true,
+    "useCreateIndex": true
+});
 
 connect.then((db: any) => {
-    console.log('Connection successful to database');
+    ~console.log('Connection successful to database', process.env.DB_HOST);
 }).catch((error: Error) => {
     console.error(error);
 });
 
 app.use(morgan('dev'));
-app.use(express.json());
 
 //setting server connection
 const port = process.env.SERVER_PORT || 3000;
