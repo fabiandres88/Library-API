@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose, { Schema } from 'mongoose';
+import { IUser } from "../interfaces/user.interface";
 
 const usersSchema = new Schema({
     firstName: {
@@ -30,6 +30,4 @@ const usersSchema = new Schema({
     }
 })
 
-var Users = mongoose.model('User', usersSchema);
-
-module.exports = Users;
+export default mongoose.model<IUser>('User', usersSchema);
