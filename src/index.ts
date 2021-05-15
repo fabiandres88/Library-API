@@ -1,10 +1,9 @@
 import "reflect-metadata";
-import * as dotenv from "dotenv";
-dotenv.config();
+import dotenv from "dotenv";
 import app from "./app"
 import morgan from 'morgan';
 import mongoose from 'mongoose';
-
+dotenv.config();
 //setting logger
 morgan(function (tokens: any, req: any, res: any) {
     return [
