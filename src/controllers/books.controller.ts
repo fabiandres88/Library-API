@@ -14,12 +14,12 @@ export class BooksController {
 
     @Get("/")
     findAllBooks() {
-        return this.booksService.getAllBooks();
+        return this.booksService.getAllBooks();       
     }
 
     @Get("/:bookId")
     async findBoookById(@Param("bookId") bookId: string) {
-        const book = this.booksService.getBookById(bookId);
+        const book = await this.booksService.getBookById(bookId);
         if (!book) return new NotFoundError("Book not found");
         return book;
     }
