@@ -4,10 +4,9 @@ import { BooksRepository } from "../repositories/books.repository";
 import { BooksService } from "../services/books.service";
 
 @JsonController("/books")
-export class BooksController {
-    protected booksService: BooksService
-    protected booksRepository: BooksRepository
-    constructor() {
+export class BooksController {    
+    constructor(protected booksService: BooksService,
+        protected booksRepository: BooksRepository) {
         this.booksRepository = new BooksRepository()
         this.booksService = new BooksService()
     }
