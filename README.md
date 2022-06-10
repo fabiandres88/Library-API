@@ -22,6 +22,8 @@ Estas aplicaciones se instalan para poder ejecutar y testear la aplicacion.
 
 - MongoDB Compass Community (https://www.mongodb.com/try/download/compass)
 
+- MongoDB Community Edition- Mac OS (https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/) 
+
 - Visual Studio code o editro de codigo deseado. (https://code.visualstudio.com/downloa)
 
 - NodeJS. (https://nodejs.org/en/download/)
